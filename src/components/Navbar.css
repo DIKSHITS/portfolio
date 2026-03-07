@@ -1,0 +1,170 @@
+/* NAVBAR */
+
+.navbar{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80%;
+  padding:15px 40px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(15,10,30,0.6);
+  backdrop-filter:blur(10px);
+
+  border-radius:40px;
+  z-index:100;
+  overflow:visible;
+}
+
+/* glowing animated border */
+
+.navbar::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(90deg,#9333ea,#6366f1,#9333ea);
+  border-radius:40px;
+  animation:glowMove 4s linear infinite;
+  z-index:-1;
+}
+
+.navbar::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  background:#020617;
+  border-radius:40px;
+  z-index:-1;
+}
+
+/* LOGO */
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:white;
+}
+
+.logo span{
+  color:#a855f7;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.nav-links li{
+  cursor:pointer;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#cbd5f5;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#a855f7;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn{
+  display:none;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+}
+
+/* ANIMATION */
+
+@keyframes glowMove{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter:hue-rotate(360deg);}
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:900px){
+
+.navbar{
+  width:90%;
+  padding:12px 25px;
+}
+
+.nav-links{
+  gap:20px;
+}
+
+.logo{
+  font-size:20px;
+}
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.navbar{
+  width:95%;
+  padding:12px 20px;
+}
+
+/* show hamburger */
+
+.menu-btn{
+  display:block;
+}
+
+/* hide links */
+
+.nav-links{
+  position:absolute;
+  top:75px;
+  left:0;
+  width:100%;
+
+  background:#020617;
+
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+
+  padding:25px 0;
+
+  border-radius:20px;
+
+  display:none;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* show when active */
+
+.nav-links.active{
+  display:flex;
+}
+
+.nav-links li{
+  width:100%;
+  text-align:center;
+}
+
+.nav-links a{
+  display:block;
+  width:100%;
+  padding:10px 0;
+  font-size:18px;
+}
+
+}
