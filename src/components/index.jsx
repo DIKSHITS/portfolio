@@ -69,9 +69,11 @@ function Hero() {
         </div>
 
         <div className="hero-right">
+
           <div className="image-wrapper">
             <img src={profile} alt="profile" />
           </div>
+
         </div>
 
       </div>
