@@ -1,287 +1,188 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
 
-function Projects() {
+const projects = [
+
+{
+title:"AI Vision EDITH",
+category:"AI",
+image:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485",
+description:
+"EDITH is a multimodal AI assistant capable of interacting with users using voice, text and images. It processes commands and analyzes images using AI APIs.",
+tech:["Python","Computer Vision","Speech Recognition","LLM APIs"],
+github:"https://github.com/DIKSHITS/virtualAssistant"
+},
+
+{
+title:"Breast Cancer Classification",
+category:"AI",
+image:"https://images.unsplash.com/photo-1576086213369-97a306d36557",
+description:
+"A machine learning system that classifies tumors as malignant or benign using neural networks trained on medical datasets.",
+tech:["Python","Neural Networks","TensorFlow","Data Processing"],
+github:"https://github.com/DIKSHITS/-Breast-Cancer-Classification-with-NN"
+},
+
+{
+title:"X-Ray Image Classification",
+category:"AI",
+image:"https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+description:
+"Deep learning system detecting patterns in medical X-ray images using pretrained convolutional neural networks.",
+tech:["Python","CNN","Deep Learning","TensorFlow"],
+github:"https://github.com/DIKSHITS/X_ray_Image_Classification_with_PreTrained_Models"
+},
+
+{
+title:"House Price Prediction",
+category:"Data",
+image:"https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+description:
+"Machine learning model predicting house prices using regression algorithms.",
+tech:["Python","Scikit-learn","Pandas"],
+github:"https://github.com/DIKSHITS/house-price-prediction"
+},
+
+{
+title:"FitLifeByMedha",
+category:"Web",
+image:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+description:
+"Modern fitness platform providing workout programs and responsive UI.",
+tech:["React","JavaScript","CSS","Responsive Design"],
+live:"https://fitlifebymedha.live/"
+},
+
+{
+title:"Sohra UPVC Website",
+category:"Web",
+image:"https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+description:
+"Business website showcasing UPVC products and services with modern UI.",
+tech:["React","CSS","Responsive UI"],
+live:"https://www.sohraupvc.com/"
+}
+
+];
+
+function Projects(){
+
+const [filter,setFilter] = useState("All");
+const [selectedProject,setSelectedProject] = useState(null);
+
+const filtered =
+filter==="All"
+?projects
+:projects.filter(p=>p.category===filter);
 
-  const [activeCategory, setActiveCategory] = useState(null);
+return(
 
-  return (
+<section id="projects" className="projects">
 
-    <section id="projects" className="projects">
+<h2 className="projects-title">My Projects</h2>
 
-      <h2 className="projects-title">My Projects</h2>
+<div className="project-tabs">
 
-      {/* CATEGORY SECTION */}
+{["All","AI","Web","Data"].map(tab=>(
+<button key={tab} onClick={()=>setFilter(tab)}>
+{tab}
+</button>
+))}
 
-      <div className="project-categories">
+</div>
 
-        {/* AI CATEGORY */}
-        <div
-          className="category-card"
-          onClick={() => setActiveCategory("ai")}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60"
-            alt="AI"
-          />
+<div className="projects-grid">
 
-          <h3>AI & Machine Learning</h3>
-          <p>AI assistants, ML models and computer vision systems</p>
-        </div>
+{filtered.map((project,index)=>(
 
+<motion.div
+key={index}
+className="project-card"
+whileHover={{scale:1.05}}
+initial={{opacity:0,y:40}}
+animate={{opacity:1,y:0}}
+transition={{duration:0.4}}
+onClick={()=>setSelectedProject(project)}
+>
 
-        {/* DATA CATEGORY */}
-        <div
-          className="category-card"
-          onClick={() => setActiveCategory("data")}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60"
-            alt="Data Analytics"
-          />
+<img src={project.image} alt={project.title}/>
 
-          <h3>Data Analytics</h3>
-          <p>Power BI dashboards and data analysis projects</p>
-        </div>
+<h3>{project.title}</h3>
 
+<p>{project.description.substring(0,100)}...</p>
 
-        {/* WEB CATEGORY */}
-        <div
-          className="category-card"
-          onClick={() => setActiveCategory("web")}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=60"
-            alt="Web Development"
-          />
+</motion.div>
 
-          <h3>Web Development</h3>
-          <p>MERN stack applications and modern web platforms</p>
-        </div>
+))}
 
-      </div>
+</div>
 
 
-      {/* ================= AI PROJECTS ================= */}
+<AnimatePresence>
 
-      {activeCategory === "ai" && (
+{selectedProject &&(
 
-        <div className="projects-grid">
+<motion.div
+className="project-modal"
+initial={{opacity:0}}
+animate={{opacity:1}}
+exit={{opacity:0}}
+onClick={()=>setSelectedProject(null)}
+>
 
-          {/* EDITH */}
-          <div className="project-card">
+<motion.div
+className="modal-content"
+initial={{scale:0.8}}
+animate={{scale:1}}
+exit={{scale:0.8}}
+onClick={(e)=>e.stopPropagation()}
+>
 
-            <img
-              src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60"
-              alt="AI Assistant"
-            />
+<img src={selectedProject.image} alt="project"/>
 
-            <h3>AI Vision EDITH</h3>
+<h2>{selectedProject.title}</h2>
 
-            <p>
-              Multimodal AI assistant capable of understanding voice,
-              text and images using computer vision and AI APIs.
-            </p>
+<p>{selectedProject.description}</p>
 
-            <a
-              href="https://github.com/DIKSHITS/virtualAssistant"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
+<h4>Technologies Used</h4>
 
-          </div>
+<div className="tech-stack">
 
+{selectedProject.tech.map((t,i)=>(
+<span key={i}>{t}</span>
+))}
 
-          {/* Breast Cancer */}
-          <div className="project-card">
+</div>
 
-            <img
-              src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=60"
-              alt="Breast Cancer Classification"
-            />
+<div className="project-links">
 
-            <h3>Breast Cancer Classification</h3>
+{selectedProject.github &&(
+<a href={selectedProject.github} target="_blank" rel="noreferrer">
+GitHub
+</a>
+)}
 
-            <p>
-              Neural network model detecting tumors using
-              medical datasets and machine learning algorithms.
-            </p>
+{selectedProject.live &&(
+<a href={selectedProject.live} target="_blank" rel="noreferrer">
+Live Site
+</a>
+)}
 
-            <a
-              href="https://github.com/DIKSHITS/-Breast-Cancer-Classification-with-NN"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
+</div>
 
-          </div>
+</motion.div>
 
+</motion.div>
 
-          {/* X-ray */}
-          <div className="project-card">
+)}
 
-            <img
-              src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=60"
-              alt="X-ray AI"
-            />
+</AnimatePresence>
 
-            <h3>X-ray Image Classification</h3>
+</section>
 
-            <p>
-              Deep learning model classifying medical X-ray images
-              using pretrained convolutional neural networks.
-            </p>
+);
 
-            <a
-              href="https://github.com/DIKSHITS/X_ray_Image_Classification_with_PreTrained_Models"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
-          </div>
-
-        </div>
-
-      )}
-
-
-
-      {/* ================= DATA PROJECTS ================= */}
-
-      {activeCategory === "data" && (
-
-        <div className="projects-grid">
-
-          <div className="project-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60"
-              alt="Banking Data"
-            />
-
-            <h3>Banking Data Analysis</h3>
-
-            <p>
-              Data analytics system identifying financial patterns,
-              trends and customer behaviour using data visualization.
-            </p>
-
-          </div>
-
-
-          <div className="project-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=60"
-              alt="House Price"
-            />
-
-            <h3>House Price Prediction</h3>
-
-            <p>
-              Machine learning model predicting property prices
-              using regression algorithms and housing datasets.
-            </p>
-
-            <a
-              href="https://github.com/DIKSHITS/house-price-prediction"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
-          </div>
-
-        </div>
-
-      )}
-
-
-
-      {/* ================= WEB PROJECTS ================= */}
-
-      {activeCategory === "web" && (
-
-        <div className="projects-grid">
-
-          <div className="project-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=60"
-              alt="Fitness Website"
-            />
-
-            <h3>FitLifeByMedha</h3>
-
-            <p>
-              Fitness platform providing workout programs
-              and healthy lifestyle guidance.
-            </p>
-
-            <a
-              href="https://fitlifebymedha.live/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live Site
-            </a>
-
-          </div>
-
-
-          <div className="project-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=60"
-              alt="UPVC Website"
-            />
-
-            <h3>Sohra UPVC</h3>
-
-            <p>
-              Business website showcasing UPVC products
-              and services with modern responsive design.
-            </p>
-
-            <a
-              href="https://www.sohraupvc.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live Site
-            </a>
-
-          </div>
-
-
-          <div className="project-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=60"
-              alt="Complaint System"
-            />
-
-            <h3>Complaint Management System</h3>
-
-            <p>
-              Full stack platform for submitting complaints
-              and tracking issue resolution with admin dashboard.
-            </p>
-
-          </div>
-
-        </div>
-
-      )}
-
-    </section>
-  );
 }
 
 export default Projects;

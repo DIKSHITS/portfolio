@@ -1,10 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Hero.css";
-import profile from "../images/dks .png";
+import profile from "../images/dikshit.png";
 
 function Hero() {
 
   const [showResume, setShowResume] = useState(false);
+  const [text, setText] = useState("");
+
+  const roles = [
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "AI Engineer"
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setText(roles[roleIndex]);
+  }, [roleIndex]);
 
   const downloadFile = (file) => {
     const link = document.createElement("a");
@@ -20,25 +41,35 @@ function Hero() {
 
       <div className="hero-container">
 
+        {/* LEFT SIDE */}
+
         <div className="hero-left">
 
           <h1>
             Hi, I'm <span>Dikshit Raj</span>
           </h1>
 
-          <h2>Full Stack Developer</h2>
+          <h2 className="typing">{text}</h2>
 
           <p>
-            Creating modern, responsive and user-friendly
-            applications with passion and precision.
+            Creating modern, scalable and intelligent web
+            applications using MERN stack and Artificial Intelligence.
           </p>
 
-          <button
-            className="hero-btn"
-            onClick={() => setShowResume(!showResume)}
-          >
-            Download Resume
-          </button>
+          <div className="hero-buttons">
+
+            <button
+              className="hero-btn"
+              onClick={() => setShowResume(!showResume)}
+            >
+              Download Resume
+            </button>
+
+            <a href="#contact" className="hire-btn">
+              Hire Me
+            </a>
+
+          </div>
 
           {showResume && (
 
@@ -59,7 +90,7 @@ function Hero() {
                   downloadFile("/resume/NEW Resume Dikshit (1).pdf")
                 }
               >
-                Web Developer Resume
+                Web Dev Resume
               </button>
 
             </div>
@@ -68,10 +99,19 @@ function Hero() {
 
         </div>
 
+
+        {/* RIGHT SIDE PROFILE IMAGE */}
+
         <div className="hero-right">
 
-          <div className="image-wrapper">
-            <img src={profile} alt="profile" />
+          <div className="profile-container">
+
+            <div className="profile-ring"></div>
+
+            <div className="profile-image">
+              <img src={profile} alt="Dikshit Raj" />
+            </div>
+
           </div>
 
         </div>

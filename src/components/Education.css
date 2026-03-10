@@ -1,0 +1,149 @@
+.education{
+padding:120px 10%;
+background:#020617;
+color:white;
+text-align:center;
+position:relative;
+}
+
+/* Title */
+
+.education-title{
+font-size:42px;
+color:#c084fc;
+margin-bottom:90px;
+letter-spacing:1px;
+}
+
+
+/* Timeline container */
+
+.education-container{
+position:relative;
+max-width:900px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:60px;
+}
+
+/* Timeline line */
+
+.education-container::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+width:3px;
+height:100%;
+background:linear-gradient(#9333ea,#6366f1);
+transform:translateX(-50%);
+opacity:0.7;
+}
+
+
+/* Card */
+
+.education-card{
+position:relative;
+width:45%;
+background:rgba(15,23,42,0.8);
+padding:30px;
+border-radius:16px;
+border:1px solid rgba(168,85,247,0.25);
+backdrop-filter:blur(10px);
+transition:0.4s;
+text-align:left;
+}
+
+
+/* Left cards */
+
+.education-card:nth-child(odd){
+left:0;
+}
+
+/* Right cards */
+
+.education-card:nth-child(even){
+left:55%;
+}
+
+
+/* Timeline circle */
+
+.education-card::before{
+content:"";
+position:absolute;
+top:35px;
+right:-32px;
+width:18px;
+height:18px;
+background:#9333ea;
+border-radius:50%;
+box-shadow:0 0 20px #9333ea;
+}
+
+.education-card:nth-child(even)::before{
+left:-32px;
+}
+
+
+/* Hover animation */
+
+.education-card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 0 40px rgba(168,85,247,0.7);
+border:1px solid rgba(168,85,247,0.6);
+}
+
+
+/* Heading */
+
+.education-card h3{
+color:#c084fc;
+margin-bottom:10px;
+font-size:20px;
+}
+
+
+/* College */
+
+.edu-college{
+color:#a855f7;
+margin-bottom:10px;
+font-size:14px;
+display:inline-block;
+background:rgba(168,85,247,0.1);
+padding:5px 12px;
+border-radius:6px;
+}
+
+
+/* Description */
+
+.edu-desc{
+color:#cbd5f5;
+line-height:1.6;
+}
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.education-container::before{
+left:10px;
+}
+
+.education-card{
+width:100%;
+left:0 !important;
+padding-left:50px;
+}
+
+.education-card::before{
+left:-10px !important;
+}
+
+}
