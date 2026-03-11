@@ -2,17 +2,16 @@ import { useState, useEffect } from "react";
 import "./Hero.css";
 import profile from "../images/dikshit.png";
 
+const roles = [
+  "Full Stack Developer",
+  "MERN Stack Developer",
+  "AI Engineer"
+];
+
 function Hero() {
 
   const [showResume, setShowResume] = useState(false);
   const [text, setText] = useState("");
-
-  const roles = [
-    "Full Stack Developer",
-    "MERN Stack Developer",
-    "AI Engineer"
-  ];
-
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
