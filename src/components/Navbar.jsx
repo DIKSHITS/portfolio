@@ -44,6 +44,17 @@ function Navbar() {
             Projects
           </a>
         </li>
+       <li>
+  <a href="#education" onClick={()=>setMenuOpen(false)}>
+    Education
+  </a>
+</li>
+
+<li>
+  <a href="#experience" onClick={()=>setMenuOpen(false)}>
+    Experience
+  </a>
+</li>
 
         <li>
           <a href="#contact" onClick={()=>setMenuOpen(false)}>
