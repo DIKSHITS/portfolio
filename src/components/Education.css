@@ -1,3 +1,12 @@
+/* ===== GLOBAL FIX ===== */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+
 /* ===== EDUCATION SECTION ===== */
 
 .education{
@@ -6,10 +15,11 @@ background:#020617;
 color:white;
 text-align:center;
 position:relative;
+overflow:hidden;
 }
 
 
-/* Title */
+/* ===== TITLE ===== */
 
 .education-title{
 font-size:clamp(28px,4vw,42px);
@@ -31,7 +41,7 @@ gap:60px;
 }
 
 
-/* Timeline vertical line */
+/* ===== CENTER TIMELINE LINE ===== */
 
 .education-container::before{
 content:"";
@@ -51,8 +61,8 @@ opacity:0.7;
 .education-card{
 position:relative;
 width:45%;
-background:rgba(15,23,42,0.85);
-padding:30px;
+background:rgba(15,23,42,0.9);
+padding:28px;
 border-radius:16px;
 border:1px solid rgba(168,85,247,0.25);
 backdrop-filter:blur(10px);
@@ -61,14 +71,14 @@ text-align:left;
 }
 
 
-/* Left cards */
+/* LEFT SIDE */
 
 .education-card:nth-child(odd){
 align-self:flex-start;
 }
 
 
-/* Right cards */
+/* RIGHT SIDE */
 
 .education-card:nth-child(even){
 align-self:flex-end;
@@ -80,7 +90,7 @@ align-self:flex-end;
 .education-card::before{
 content:"";
 position:absolute;
-top:35px;
+top:30px;
 right:-32px;
 width:18px;
 height:18px;
@@ -95,16 +105,16 @@ right:auto;
 }
 
 
-/* Hover animation */
+/* ===== HOVER EFFECT ===== */
 
 .education-card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 0 40px rgba(168,85,247,0.7);
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(168,85,247,0.6);
 border:1px solid rgba(168,85,247,0.6);
 }
 
 
-/* Heading */
+/* ===== HEADING ===== */
 
 .education-card h3{
 color:#c084fc;
@@ -113,30 +123,31 @@ font-size:20px;
 }
 
 
-/* College */
+/* ===== COLLEGE LABEL ===== */
 
 .edu-college{
 color:#a855f7;
 margin-bottom:10px;
 font-size:14px;
 display:inline-block;
-background:rgba(168,85,247,0.1);
+background:rgba(168,85,247,0.12);
 padding:5px 12px;
 border-radius:6px;
 }
 
 
-/* Description */
+/* ===== DESCRIPTION ===== */
 
 .edu-desc{
 color:#cbd5f5;
 line-height:1.6;
+font-size:15px;
 }
 
 
 /* ===== TABLET ===== */
 
-@media(max-width:900px){
+@media(max-width:992px){
 
 .education-container::before{
 left:20px;
@@ -149,7 +160,7 @@ padding-left:60px;
 }
 
 .education-card::before{
-left:10px;
+left:8px;
 right:auto;
 }
 
@@ -164,13 +175,21 @@ right:auto;
 padding:80px 6%;
 }
 
+.education-title{
+margin-bottom:60px;
+}
+
 .education-card{
 padding:22px;
 padding-left:60px;
 }
 
-.education-title{
-margin-bottom:60px;
+.education-card h3{
+font-size:18px;
+}
+
+.edu-desc{
+font-size:14px;
 }
 
 }
@@ -186,11 +205,11 @@ padding-left:55px;
 }
 
 .education-card h3{
-font-size:18px;
+font-size:17px;
 }
 
 .edu-desc{
-font-size:14px;
+font-size:13px;
 }
 
 }
