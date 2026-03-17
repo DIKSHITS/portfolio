@@ -14,7 +14,7 @@ function Education() {
           <h3>Master of Computer Applications (MCA)</h3>
 
           <p className="edu-college">
-            Specialization: Full Stack Development & AI
+            CGPA: 9.23
           </p>
 
           <p className="edu-desc">
