@@ -12,7 +12,7 @@ padding:0;
 .education{
 padding:120px 8%;
 background:#020617;
-color:white;
+color:#e2e8f0;
 text-align:center;
 position:relative;
 overflow:hidden;
@@ -23,7 +23,7 @@ overflow:hidden;
 
 .education-title{
 font-size:clamp(28px,4vw,42px);
-color:#c084fc;
+color:#60a5fa;
 margin-bottom:80px;
 letter-spacing:1px;
 }
@@ -41,7 +41,7 @@ gap:60px;
 }
 
 
-/* ===== CENTER TIMELINE LINE ===== */
+/* ===== CENTER LINE ===== */
 
 .education-container::before{
 content:"";
@@ -50,7 +50,7 @@ left:50%;
 top:0;
 width:3px;
 height:100%;
-background:linear-gradient(#9333ea,#6366f1);
+background:linear-gradient(#2563eb,#3b82f6);
 transform:translateX(-50%);
 opacity:0.7;
 }
@@ -64,21 +64,20 @@ width:45%;
 background:rgba(15,23,42,0.9);
 padding:28px;
 border-radius:16px;
-border:1px solid rgba(168,85,247,0.25);
+border:1px solid rgba(59,130,246,0.25);
 backdrop-filter:blur(10px);
 transition:0.4s;
 text-align:left;
 }
 
 
-/* LEFT SIDE */
+/* LEFT */
 
 .education-card:nth-child(odd){
 align-self:flex-start;
 }
 
-
-/* RIGHT SIDE */
+/* RIGHT */
 
 .education-card:nth-child(even){
 align-self:flex-end;
@@ -94,9 +93,9 @@ top:30px;
 right:-32px;
 width:18px;
 height:18px;
-background:#9333ea;
+background:#3b82f6;
 border-radius:50%;
-box-shadow:0 0 20px #9333ea;
+box-shadow:0 0 15px rgba(59,130,246,0.8);
 }
 
 .education-card:nth-child(even)::before{
@@ -105,19 +104,19 @@ right:auto;
 }
 
 
-/* ===== HOVER EFFECT ===== */
+/* ===== HOVER ===== */
 
 .education-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(168,85,247,0.6);
-border:1px solid rgba(168,85,247,0.6);
+box-shadow:0 0 30px rgba(59,130,246,0.4);
+border:1px solid rgba(59,130,246,0.5);
 }
 
 
 /* ===== HEADING ===== */
 
 .education-card h3{
-color:#c084fc;
+color:#60a5fa;
 margin-bottom:10px;
 font-size:20px;
 }
@@ -126,11 +125,11 @@ font-size:20px;
 /* ===== COLLEGE LABEL ===== */
 
 .edu-college{
-color:#a855f7;
+color:#38bdf8;
 margin-bottom:10px;
 font-size:14px;
 display:inline-block;
-background:rgba(168,85,247,0.12);
+background:rgba(59,130,246,0.12);
 padding:5px 12px;
 border-radius:6px;
 }
@@ -139,7 +138,7 @@ border-radius:6px;
 /* ===== DESCRIPTION ===== */
 
 .edu-desc{
-color:#cbd5f5;
+color:#94a3b8;
 line-height:1.6;
 font-size:15px;
 }

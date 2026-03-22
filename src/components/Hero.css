@@ -1,3 +1,17 @@
+/* ===== GLOBAL RESET ===== */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+overflow-x:hidden;
+font-family:Arial, sans-serif;
+}
+
+
 /* ===== HERO SECTION ===== */
 
 .hero{
@@ -5,8 +19,8 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(135deg,#020617,#0f172a,#020617);
-color:white;
+background:linear-gradient(135deg,#020617,#020617,#0a0f1c);
+color:#e2e8f0;
 padding:80px 5%;
 }
 
@@ -24,12 +38,22 @@ flex-wrap:wrap;
 }
 
 
+/* ===== LEFT + RIGHT FIX ===== */
+
+.hero-left,
+.hero-right{
+flex:1 1 100%;
+max-width:100%;
+}
+
+
 /* ===== LEFT SECTION ===== */
 
 .hero-left{
-flex:1;
-min-width:280px;
-max-width:520px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
 .hero-left h1{
@@ -39,21 +63,21 @@ font-weight:700;
 }
 
 .hero-left span{
-color:#c084fc;
+color:#38bdf8;
 }
 
 .hero-left h2{
 font-size:clamp(18px,3vw,26px);
-color:#a855f7;
+color:#60a5fa;
 margin-bottom:20px;
-min-height:32px;
 }
 
 .hero-left p{
-color:#cbd5f5;
+color:#94a3b8;
 line-height:1.7;
 margin-bottom:30px;
 font-size:clamp(14px,2vw,16px);
+max-width:500px;
 }
 
 
@@ -61,113 +85,94 @@ font-size:clamp(14px,2vw,16px);
 
 .hero-buttons{
 display:flex;
+flex-direction:column;
+align-items:center;
 gap:15px;
-flex-wrap:wrap;
+width:100%;
 }
 
 .hero-btn{
 padding:12px 28px;
 border:none;
 border-radius:30px;
-background:linear-gradient(90deg,#9333ea,#6366f1);
+background:linear-gradient(90deg,#2563eb,#3b82f6);
 color:white;
 cursor:pointer;
 font-size:15px;
 transition:0.3s;
+width:100%;
+max-width:280px;
 }
 
 .hero-btn:hover{
 transform:translateY(-3px);
-box-shadow:0 0 20px rgba(147,51,234,0.8);
+box-shadow:0 10px 25px rgba(59,130,246,0.4);
 }
 
 
-/* hire button */
+/* ===== HIRE BUTTON ===== */
 
 .hire-btn{
 padding:12px 28px;
 border-radius:30px;
-border:1px solid #9333ea;
+border:1px solid #3b82f6;
 text-decoration:none;
-color:white;
+color:#e2e8f0;
 transition:0.3s;
+width:100%;
+max-width:280px;
+text-align:center;
 }
 
 .hire-btn:hover{
-background:#9333ea;
-}
-
-
-/* ===== RESUME OPTIONS ===== */
-
-.resume-options{
-margin-top:15px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.resume-link{
-padding:8px 18px;
-border-radius:20px;
-border:1px solid rgba(168,85,247,0.5);
-background:#0f172a;
+background:#2563eb;
 color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-.resume-link:hover{
-background:linear-gradient(90deg,#9333ea,#6366f1);
 }
 
 
 /* ===== RIGHT IMAGE SECTION ===== */
 
 .hero-right{
-flex:1;
-min-width:280px;
 display:flex;
 justify-content:center;
 align-items:center;
 }
 
 
-/* ===== PROFILE IMAGE CONTAINER ===== */
+/* ===== PROFILE IMAGE ===== */
 
 .profile-container{
 position:relative;
-width:clamp(220px,30vw,320px);
-height:clamp(300px,40vw,420px);
-display:flex;
-align-items:center;
-justify-content:center;
+width:100%;
+max-width:260px;
+aspect-ratio:3/4;
+margin:auto;
 }
 
 
-/* glow background */
+/* ===== GLOW ===== */
 
 .profile-container::before{
 content:"";
 position:absolute;
 width:110%;
 height:110%;
-background:linear-gradient(135deg,#9333ea,#6366f1);
-opacity:0.15;
-filter:blur(35px);
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+opacity:0.1;
+filter:blur(40px);
 z-index:0;
 }
 
 
-/* image card */
+/* ===== IMAGE CARD ===== */
 
 .profile-image{
 width:100%;
 height:100%;
 border-radius:12px;
 overflow:hidden;
-border:2px solid rgba(168,85,247,0.3);
-background:#0f172a;
+border:1px solid rgba(59,130,246,0.25);
+background:#020617;
 box-shadow:0 20px 50px rgba(0,0,0,0.6);
 transition:0.4s;
 position:relative;
@@ -176,7 +181,7 @@ animation:floatImage 4s ease-in-out infinite;
 }
 
 
-/* actual image */
+/* ===== IMAGE ===== */
 
 .profile-image img{
 width:100%;
@@ -185,71 +190,50 @@ object-fit:cover;
 }
 
 
-/* floating animation */
+/* ===== FLOAT ===== */
 
 @keyframes floatImage{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-10px); }
+100%{ transform:translateY(0px); }
 }
 
 
-/* hover effect */
+/* ===== HOVER ===== */
 
 .profile-image:hover{
 transform:scale(1.04);
-box-shadow:0 30px 60px rgba(147,51,234,0.5);
+box-shadow:0 30px 60px rgba(59,130,246,0.3);
 }
 
 
-/* ===== TABLET ===== */
+/* ===== TABLET & DESKTOP ===== */
 
-@media(max-width:900px){
+@media(min-width:768px){
 
-.hero-container{
-flex-direction:column;
-text-align:center;
-gap:50px;
+.hero-left,
+.hero-right{
+flex:1;
+max-width:50%;
 }
 
-.hero-buttons{
-justify-content:center;
-}
-
-.resume-options{
-justify-content:center;
-}
-
-}
-
-
-/* ===== MOBILE ===== */
-
-@media(max-width:600px){
-
-.hero{
-padding:70px 6%;
+.hero-left{
+align-items:flex-start;
+text-align:left;
 }
 
 .hero-buttons{
-flex-direction:column;
-align-items:center;
+flex-direction:row;
+justify-content:flex-start;
 }
 
 .hero-btn,
 .hire-btn{
-width:200px;
-text-align:center;
+width:auto;
+}
+
+.profile-container{
+max-width:320px;
 }
 
 }
