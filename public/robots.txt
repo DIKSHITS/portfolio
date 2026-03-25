@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dikshitraj.live/sitemap.xml
+Sitemap: https://dikshit.live/sitemap.xml
