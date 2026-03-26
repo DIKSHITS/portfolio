@@ -1,71 +1,80 @@
-import "./About.css"
+import "./About.css";
+import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
-    <section id="about" className="about">
+    <>
+      {/* ✅ SEO PART (VERY IMPORTANT) */}
+      <Helmet>
+        <title>About | Dikshit Raj - MERN Stack Developer</title>
 
-      <div className="about-container">
+        <meta
+          name="description"
+          content="Learn about Dikshit Raj, a MERN Stack Developer skilled in React, Node.js, MongoDB, and AI-based applications."
+        />
 
-        <div className="about-left">
+        <link rel="canonical" href="https://dikshit.live/about" />
+      </Helmet>
 
-          <h2 className="about-title">About Me</h2>
+      {/* ✅ UI PART */}
+      <section id="about" className="about">
+        <div className="about-container">
 
-          <p>
-            Hello! I'm <span>Dikshit Raj</span>, a passionate Full Stack
-            Developer with a strong interest in Artificial Intelligence
-            and Data Analytics. I specialize in building modern,
-            scalable, and intelligent web applications using the
-            MERN stack (MongoDB, Express.js, React.js, Node.js).
-          </p>
+          <div className="about-left">
+            <h2 className="about-title">About Me</h2>
 
-          <p>
-            Currently pursuing my MCA, I have worked on several
-            real-world projects including AI-powered platforms,
-            complaint management systems, and full-stack applications
-            that solve practical problems.
-          </p>
+            <p>
+              Hello! I'm <span>Dikshit Raj</span>, a passionate Full Stack
+              Developer with a strong interest in Artificial Intelligence
+              and Data Analytics. I specialize in building modern,
+              scalable, and intelligent web applications using the
+              MERN stack (MongoDB, Express.js, React.js, Node.js).
+            </p>
 
-          <p>
-            I enjoy integrating AI technologies into web platforms
-            to automate processes, improve user experience, and
-            build smarter digital solutions.
-          </p>
+            <p>
+              Currently pursuing my MCA, I have worked on several
+              real-world projects including AI-powered platforms,
+              complaint management systems, and full-stack applications
+              that solve practical problems.
+            </p>
+
+            <p>
+              I enjoy integrating AI technologies into web platforms
+              to automate processes, improve user experience, and
+              build smarter digital solutions.
+            </p>
+          </div>
+
+          <div className="about-right">
+            <div className="about-card">
+              <h3>🚀 Web Development</h3>
+              <p>
+                Building responsive and scalable web applications
+                using React, Node.js, Express and modern UI frameworks.
+              </p>
+            </div>
+
+            <div className="about-card">
+              <h3>🤖 Artificial Intelligence</h3>
+              <p>
+                Creating AI-powered tools like smart assistants,
+                resume builders and intelligent automation systems.
+              </p>
+            </div>
+
+            <div className="about-card">
+              <h3>📊 Data Analytics</h3>
+              <p>
+                Transforming raw data into meaningful insights using
+                visualization tools and analytics platforms.
+              </p>
+            </div>
+          </div>
 
         </div>
-
-
-        <div className="about-right">
-
-          <div className="about-card">
-            <h3>🚀 Web Development</h3>
-            <p>
-              Building responsive and scalable web applications
-              using React, Node.js, Express and modern UI frameworks.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>🤖 Artificial Intelligence</h3>
-            <p>
-              Creating AI-powered tools like smart assistants,
-              resume builders and intelligent automation systems.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>📊 Data Analytics</h3>
-            <p>
-              Transforming raw data into meaningful insights using
-              visualization tools and analytics platforms.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-  )
+      </section>
+    </>
+  );
 }
 
-export default About
+export default About;

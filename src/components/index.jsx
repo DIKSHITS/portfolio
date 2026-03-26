@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import "./Hero.css";
 import profile from "../images/dikshit.png";
 
@@ -36,88 +37,102 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="hero">
+    <>
+      {/* ✅ SEO PART (VERY IMPORTANT) */}
+      <Helmet>
+        <title>
+          Dikshit Raj | MERN Stack Developer | Full Stack & AI Developer
+        </title>
 
-      <div className="hero-container">
+        <meta
+          name="description"
+          content="Dikshit Raj is a MERN Stack Developer and AI enthusiast. Explore projects, skills, and portfolio of a full stack web developer."
+        />
 
-        {/* LEFT SIDE */}
+        <link rel="canonical" href="https://dikshit.live/" />
+      </Helmet>
 
-        <div className="hero-left">
+      {/* UI */}
+      <section id="home" className="hero">
 
-          <h1>
-            Hi, I'm <span>Dikshit Raj</span>
-          </h1>
+        <div className="hero-container">
 
-          <h2 className="typing">{text}</h2>
+          {/* LEFT SIDE */}
+          <div className="hero-left">
 
-          <p>
-            Creating modern, scalable and intelligent web
-            applications using MERN stack and Artificial Intelligence.
-          </p>
+            <h1>
+              Hi, I'm <span>Dikshit Raj</span>
+            </h1>
 
-          <div className="hero-buttons">
+            <h2 className="typing">{text}</h2>
 
-            <button
-              className="hero-btn"
-              onClick={() => setShowResume(!showResume)}
-            >
-              Download Resume
-            </button>
+            <p>
+              Creating modern, scalable and intelligent web
+              applications using MERN stack and Artificial Intelligence.
+            </p>
 
-            <a href="#contact" className="hire-btn">
-              Hire Me
-            </a>
-
-          </div>
-
-          {showResume && (
-
-            <div className="resume-options">
+            <div className="hero-buttons">
 
               <button
-                className="resume-link"
-                onClick={() =>
-                  downloadFile("/resume/Latest_Dikshit_AI.pdf")
-                }
+                className="hero-btn"
+                onClick={() => setShowResume(!showResume)}
               >
-                AI Resume
+                Download Resume
               </button>
 
-              <button
-                className="resume-link"
-                onClick={() =>
-                  downloadFile("/resume/NEW Resume Dikshit (1).pdf")
-                }
-              >
-                Web Dev Resume
-              </button>
+              {/* ✅ CHANGE THIS (important for SEO) */}
+              <a href="/contact" className="hire-btn">
+                Hire Me
+              </a>
 
             </div>
 
-          )}
+            {showResume && (
+              <div className="resume-options">
 
-        </div>
+                <button
+                  className="resume-link"
+                  onClick={() =>
+                    downloadFile("/resume/Latest_Dikshit_AI.pdf")
+                  }
+                >
+                  AI Resume
+                </button>
 
+                <button
+                  className="resume-link"
+                  onClick={() =>
+                    downloadFile("/resume/NEW Resume Dikshit (1).pdf")
+                  }
+                >
+                  Web Dev Resume
+                </button>
 
-        {/* RIGHT SIDE PROFILE IMAGE */}
+              </div>
+            )}
 
-        <div className="hero-right">
+          </div>
 
-          <div className="profile-container">
+          {/* RIGHT SIDE */}
+          <div className="hero-right">
 
-            <div className="profile-ring"></div>
+            <div className="profile-container">
 
-            <div className="profile-image">
-              <img src={profile} alt="Dikshit Raj" />
+              <div className="profile-ring"></div>
+
+              <div className="profile-image">
+                {/* ✅ SEO IMAGE FIX */}
+                <img src={profile} alt="Dikshit Raj MERN Stack Developer" />
+              </div>
+
             </div>
 
           </div>
 
         </div>
 
-      </div>
-
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -1,85 +1,84 @@
-import "./Experience.css"
+import "./Experience.css";
+import { Helmet } from "react-helmet-async";
 
-function Experience(){
+function Experience() {
+  return (
+    <>
+      {/* ✅ SEO PART */}
+      <Helmet>
+        <title>Experience | Dikshit Raj - MERN Developer</title>
 
-return(
+        <meta
+          name="description"
+          content="Explore Dikshit Raj's experience as a MERN Stack Developer including internship at MBSIR.IN and freelance full stack development projects."
+        />
 
-<section id="experience" className="experience">
+        <link rel="canonical" href="https://dikshit.live/experience" />
+      </Helmet>
 
-<h2 className="experience-title">Experience</h2>
+      {/* UI */}
+      <section id="experience" className="experience">
 
-<div className="experience-container">
+        <h1 className="experience-title">Experience</h1>
 
+        <div className="experience-container">
 
-{/* Internship */}
+          {/* Internship */}
+          <div className="experience-card">
 
-<div className="experience-card">
+            <h2>Web Development Intern</h2>
 
-<h3>Web Development Intern</h3>
+            <p className="exp-company">MBSIR.IN</p>
 
-<p className="exp-company">MBSIR.IN</p>
+            <p className="exp-desc">
+              Worked as a MERN Stack Developer Intern where I developed
+              full stack web applications using React.js, Node.js,
+              Express.js and MongoDB.
 
-<p className="exp-desc">
+              Built real-world platforms including complaint
+              management systems and responsive web applications
+              with modern UI design.
+            </p>
 
-Worked as a MERN Stack Developer Intern where I developed
-full stack web applications using React.js, Node.js,
-Express.js and MongoDB.
+            <ul>
+              <li>Developed MERN stack applications</li>
+              <li>Built REST APIs using Node.js and Express</li>
+              <li>Designed responsive UI with React</li>
+              <li>Integrated MongoDB databases</li>
+            </ul>
 
-Built real-world platforms including complaint
-management systems and responsive web applications
-with modern UI design.
+          </div>
 
-</p>
+          {/* Freelance Work */}
+          <div className="experience-card">
 
-<ul>
+            <h2>Freelance Full Stack Developer</h2>
 
-<li>Developed MERN stack applications</li>
-<li>Built REST APIs using Node.js and Express</li>
-<li>Designed responsive UI with React</li>
-<li>Integrated MongoDB databases</li>
+            <p className="exp-company">Freelance Projects</p>
 
-</ul>
+            <p className="exp-desc">
+              Worked with clients to design and develop modern
+              business websites and web applications using
+              React.js and modern frontend technologies.
 
-</div>
+              Delivered responsive websites optimized for
+              performance, SEO, and user experience.
+            </p>
 
+            <ul>
+              <li>Developed business websites for clients</li>
+              <li>Built responsive UI using React and CSS</li>
+              <li>Deployed projects on hosting platforms</li>
+              <li>Delivered production-ready web solutions</li>
+            </ul>
 
-{/* Freelance Work */}
+          </div>
 
-<div className="experience-card">
+        </div>
 
-<h3>Freelance Full Stack Developer</h3>
-
-<p className="exp-company">Freelance Projects</p>
-
-<p className="exp-desc">
-
-Worked with clients to design and develop modern
-business websites and web applications using
-React.js and modern frontend technologies.
-
-Delivered responsive websites optimized for
-performance, SEO, and user experience.
-
-</p>
-
-<ul>
-
-<li>Developed business websites for clients</li>
-<li>Built responsive UI using React and CSS</li>
-<li>Deployed projects on hosting platforms</li>
-<li>Delivered production-ready web solutions</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-</section>
-
-)
-
+      </section>
+    </>
+  );
 }
 
-export default Experience
+export default Experience;
