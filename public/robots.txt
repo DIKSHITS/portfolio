@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dikshit.live/sitemap.xml
+Sitemap: https://www.dikshit.live/sitemap.xml
+
+# Optional (good for SEO clarity)
+Host: www.dikshit.live
